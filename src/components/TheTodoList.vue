@@ -30,6 +30,10 @@
   </ul>
 </template>
 
-<script setup lang="ts"></script>
-
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'TheTodoList'
+})
+</script>
 <style scoped></style>

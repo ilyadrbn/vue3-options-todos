@@ -1,13 +1,12 @@
 <template>
-  <header class="app-header">
-    <span class="logo">TODOS</span>
-  </header>
+  <footer class="app-footer">2 more to do, 1 done</footer>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'TheHeader'
+  name: 'TheFooter'
 })
 </script>
+
 <style scoped></style>

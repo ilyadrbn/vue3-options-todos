@@ -1,10 +1,3 @@
-<script setup lang="ts">
-import TheHeader from '@/components/TheHeader.vue'
-import TheSection from '@/components/TheSection.vue'
-import TheTodoList from '@/components/TheTodoList.vue'
-import TheTodoInput from '@/components/TheTodoInput.vue'
-</script>
-
 <template>
   <TheHeader />
   <TheSection />
@@ -14,7 +7,27 @@ import TheTodoInput from '@/components/TheTodoInput.vue'
     <TheTodoInput />
   </main>
 
-  <footer class="app-footer">2 more to do, 1 done</footer>
+  <TheFooter />
 </template>
+<script lang="ts">
+import TheHeader from '@/components/TheHeader.vue'
+import TheSection from '@/components/TheSection.vue'
+import TheTodoList from '@/components/TheTodoList.vue'
+import TheTodoInput from '@/components/TheTodoInput.vue'
+import TheFooter from '@/components/TheFooter.vue'
+
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    TheHeader,
+    TheSection,
+    TheTodoList,
+    TheTodoInput,
+    TheFooter
+  }
+})
+</script>
 
 <style scoped></style>
