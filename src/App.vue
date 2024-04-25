@@ -1,9 +1,13 @@
 <template>
   <TheHeader />
-  <TheSection />
+  <TheSection :active-section="activeSection" :todos="todos" @toggle-section="toggleSection" />
 
   <main class="app-main">
-    <TheTodoList :todos="todos" @toggle-todo-status="toggleTodoStatus" @remove-todo="removeTodo" />
+    <TheTodoList
+      :todos="filteredTodos"
+      @toggle-todo-status="toggleTodoStatus"
+      @remove-todo="removeTodo"
+    />
     <TheTodoInput @add-todo="addTodo" />
   </main>
 
@@ -17,11 +21,13 @@ import TheTodoInput from '@/components/TheTodoInput.vue'
 import TheFooter from '@/components/TheFooter.vue'
 
 import type { Todo } from '@/types/Todo.ts'
+import type { Section } from '@/types/Section.ts'
 
 import { defineComponent } from 'vue'
 
 interface State {
   todos: Todo[]
+  activeSection: Section
 }
 
 export default defineComponent({
@@ -35,7 +41,21 @@ export default defineComponent({
   },
   data(): State {
     return {
-      todos: Array<Todo>()
+      todos: Array<Todo>(),
+      activeSection: 'All'
+    }
+  },
+  computed: {
+    filteredTodos(): Todo[] {
+      switch (this.activeSection) {
+        case 'Active':
+          return this.todos.filter((todo) => !todo.completed)
+        case 'Done':
+          return this.todos.filter((todo) => todo.completed)
+        case 'All':
+        default:
+          return this.todos
+      }
     }
   },
   methods: {
@@ -47,6 +67,9 @@ export default defineComponent({
     },
     removeTodo(todo: Todo) {
       this.todos = this.todos.filter((item) => item.id !== todo.id)
+    },
+    toggleSection(section: Section) {
+      this.activeSection = section
     }
   }
 })
