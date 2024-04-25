@@ -1,11 +1,20 @@
 <template>
-  <footer class="app-footer">2 more to do, 1 done</footer>
+  <footer class="app-footer">
+    {{ todos?.length }} more to do, {{ todos?.filter((todo) => todo.completed).length }} done
+  </footer>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import type { Todo } from '@/types/Todo.ts'
+
+import { defineComponent, type PropType } from 'vue'
 export default defineComponent({
-  name: 'TheFooter'
+  name: 'TheFooter',
+  props: {
+    todos: {
+      type: Array as PropType<Todo[]>
+    }
+  }
 })
 </script>
 
