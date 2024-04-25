@@ -12,7 +12,7 @@
 <script lang="ts">
 import TheHeader from '@/components/TheHeader.vue'
 import TheSection from '@/components/TheSection.vue'
-import TheTodoList from '@/components/TheTodoList.vue'
+import TheTodoList from '@/components/TodoList/TheTodoList.vue'
 import TheTodoInput from '@/components/TheTodoInput.vue'
 import TheFooter from '@/components/TheFooter.vue'
 

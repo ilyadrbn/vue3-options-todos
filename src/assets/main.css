@@ -160,6 +160,7 @@ button {
   border-radius: 1.6rem;
   transition: box-shadow 0.2s;
   cursor: pointer;
+  user-select: none;
 }
 
 .todo-item:hover {
